@@ -8,7 +8,7 @@ get_rand() {
   local i=65535
 
   while [ ! $i -lt $bound ] || [ $i -gt $MAXNUM ]; do
-    i=`cat /dev/urandom | env LC_CTYPE=C tr -cd '0-9' | head -c 2`
+    i=`head /dev/urandom | env LC_CTYPE=C tr -cd '0-9' | head -c 2`
   done
 
   echo "$i"
